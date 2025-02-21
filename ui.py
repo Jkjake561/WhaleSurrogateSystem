@@ -17,10 +17,14 @@ class WhaleSurrogateUI:
         self.pumps = [True, False, True]   # Some pumps active/inactive
 
     def update_settings(self, **kwargs):
-        """Update settings based on user input."""
+        """Update settings based on input (from GUI or test script)."""
         for key, value in kwargs.items():
             if hasattr(self, key):
-                setattr(self, key, value)
+                if key in ["delay_fan_to_pump", "pump_period", "delay_pump_to_fan", 
+                          "delay_between_blows", "temp_setting", "temp_measured", "battery_level"]:
+                    setattr(self, key, float(value))
+                else:
+                    setattr(self, key, value)
 
     def generate_ascii_string(self):
         """Generate a comma-delimited ASCII string for serial communication."""
@@ -51,6 +55,16 @@ class WhaleSurrogateUI:
     def manual_fire(self):
         """Simulate a manual fire (toggle firing_status)."""
         self.firing_status = not self.firing_status
+
+    def toggle_nozzle(self, index):
+        """Toggle a nozzle's status (0 or 1)."""
+        if 0 <= index < len(self.nozzles):
+            self.nozzles[index] = not self.nozzles[index]
+
+    def toggle_pump(self, index):
+        """Toggle a pump's status (0 or 1)."""
+        if 0 <= index < len(self.pumps):
+            self.pumps[index] = not self.pumps[index]
 
     def get_status(self):
         """Return current status for display."""
