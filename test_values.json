@@ -1,0 +1,1 @@
+{"delay_fan_to_pump": 7.5, "pump_period": 12.0, "delay_pump_to_fan": 4.0, "delay_between_blows": 20.0, "temp_setting": 75.0, "temp_measured": 72.0, "battery_level": 90, "comms_status": "OFFLINE", "gps_status": "Inactive", "firing_status": false, "nozzles": [false, true, false], "pumps": [false, true, false]}

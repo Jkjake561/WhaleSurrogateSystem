@@ -27,8 +27,8 @@ test_values_2 = {
     "temp_setting": 75.0,
     "temp_measured": 72.0,
     "battery_level": 90,
-    "comms_status": "OK",
-    "gps_status": "Active",
+    "comms_status": "OFFLINE",
+    "gps_status": "Inactive",
     "firing_status": False,
     "nozzles": [False, True, False],
     "pumps": [False, True, False]
